@@ -1,0 +1,67 @@
+{
+	"Resources": {
+
+		"JohnLaBarge": {
+			"Type": "AWS::EC2::Instance",
+			
+			"Metadata" : {
+		        "AWS::CloudFormation::Init" : {
+		          "config" : {
+		            "packages" : {
+		              "yum" : {
+		                "httpd"     : []
+		              }
+		            }
+		         }
+		        }
+		     },
+			"Properties": {
+				"AvailabilityZone": "us-west-1b",
+				"ImageId": "ami-734c6936",
+				"SecurityGroups": [{
+					"Ref": "WebnSSHSG"
+				}],
+				"KeyName": "jlabarge8",
+				"InstanceType" : "t1.micro",
+				"Volumes" : [ {"VolumeId" : {"Ref" : "Volume"}, "Device": "/dev/sda2"}] 				
+			
+			}
+		},
+
+
+		"WebnSSHSG": {
+			"Type": "AWS::EC2::SecurityGroup",
+			"Properties": {
+				"GroupDescription": "Enable SSH access via port 22 and web access via 80",
+				"SecurityGroupIngress": [{
+					"IpProtocol": "tcp",
+					"FromPort": "22",
+					"ToPort": "22",
+					"CidrIp": "0.0.0.0/0"
+				}, {
+					"IpProtocol": "tcp",
+					"FromPort": "80",
+					"ToPort": "80",
+					"CidrIp": "0.0.0.0/0"
+				}]
+			}
+		},
+		
+		"Volume": { 
+		   "Type": "AWS::EC2::Volume",
+		   "Properties": { 
+		          "AvailabilityZone":"us-west-1b",
+		           "Size": "1"
+		    }
+		 },
+		
+         
+	    "EIP" : {
+	      "Type" : "AWS::EC2::EIP",
+	      "Properties" : {
+	        "InstanceId" : { "Ref" : "JohnLaBarge" }
+	      }
+	    }
+
+	}
+}
