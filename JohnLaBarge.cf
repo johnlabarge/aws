@@ -4,17 +4,6 @@
 		"JohnLaBarge": {
 			"Type": "AWS::EC2::Instance",
 			
-			"Metadata" : {
-		        "AWS::CloudFormation::Init" : {
-		          "config" : {
-		            "packages" : {
-		              "yum" : {
-		                "httpd"     : []
-		              }
-		            }
-		         }
-		        }
-		     },
 			"Properties": {
 				"AvailabilityZone": "us-west-1b",
 				"ImageId": "ami-734c6936",
@@ -23,11 +12,11 @@
 				}],
 				"KeyName": "jlabarge8",
 				"InstanceType" : "t1.micro",
-				"Volumes" : [ {"VolumeId" : {"Ref" : "Volume"}, "Device": "/dev/sda2"}] 				
+				"Volumes" : [ {"VolumeId" : {"Ref" : "Volume"}, "Device": "/dev/sdb"}], 				
+                                 "UserData"       : USERDATA 
+                         }
+                 }, 
 			
-			}
-		},
-
 
 		"WebnSSHSG": {
 			"Type": "AWS::EC2::SecurityGroup",
