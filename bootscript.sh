@@ -16,9 +16,11 @@ cp -r /opt/deploy/aws/web/* /www
 
 sed -i.old 's/^DocumentRoot.*/DocumentRoot \"\/www\"/' /etc/httpd/conf/httpd.conf
 
+chkconfig httpd on
 /etc/init.d/httpd stop 
 /etc/init.d/httpd start
 echo "/dev/sdb1   /www         ext4    defaults        0   0" >>/etc/fstab
+
 
 
 
