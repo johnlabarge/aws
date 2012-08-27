@@ -1,5 +1,6 @@
 #!/bin/sh 
-yum -y git
+yum -y update
+yum -y install git
 mkdir -p /opt/deploy
 cd /opt/deploy
 git clone https://github.com/johnlabarge/aws
