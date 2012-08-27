@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 
-#This script takes a shell script, breaks it down into a set of js arrays and replaces a token 
-# in a Cloud Formation Template with the script (and necessary Join and Base64 Encode ceremony
+#This script takes a shell script, breaks it down into js array of js strings and replaces a token 
+# in a Cloud Formation Template with the script (along with necessary Join and Base64 Encode). 
 
 
 inScript = ARGV[0]        or  abort "Missing arguments! usage : user_data.rb <script-file> <cloud_formation_file> <userdata_token> <?out-file>"
