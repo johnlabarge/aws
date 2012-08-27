@@ -4,6 +4,9 @@ yum -y install httpd
 sfdisk /dev/sdb <<EOF
 ,,L,,
 EOF
+#WAIT A FEW SECONDS - BETTER SOLUTION - CHECK /DEV
+echo "wait for partition to become available" 
+sleep 5s
 
 mkfs -t ext4 /dev/sdb1
 mkdir -p /www
