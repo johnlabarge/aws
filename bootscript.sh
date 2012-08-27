@@ -15,7 +15,7 @@ sed -i.old 's/^DocumentRoot.*/DocumentRoot \"\/www\"/' /etc/httpd/conf/httpd.con
 
 /etc/init.d/httpd stop 
 /etc/init.d/httpd start
-
+echo "/dev/sdb1   /www         ext4    defaults        0   0" >>/etc/fstab
 
 
 
