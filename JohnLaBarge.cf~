@@ -5,7 +5,7 @@
 			"Type": "AWS::EC2::Instance",
 			
 			"Properties": {
-				"AvailabilityZone": "us-west-1a",
+				"AvailabilityZone": "us-west-1b",
 				"ImageId": "ami-734c6936",
 				"SecurityGroups": [{
 					"Ref": "WebnSSHSG"
@@ -39,7 +39,7 @@
 		"Volume": { 
 		   "Type": "AWS::EC2::Volume",
 		   "Properties": { 
-		          "AvailabilityZone":"us-west-1a",
+		          "AvailabilityZone":"us-west-1b",
 		           "Size": "1"
 		    }
 		 },

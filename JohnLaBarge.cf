@@ -10,7 +10,7 @@
 				"SecurityGroups": [{
 					"Ref": "WebnSSHSG"
 				}],
-				"KeyName": "jlabarge8",
+				"KeyName": "johnaws",
 				"InstanceType" : "t1.micro",
 				"Volumes" : [ {"VolumeId" : {"Ref" : "Volume"}, "Device": "/dev/sdb"}], 				
                                  "UserData"       : USERDATA 
